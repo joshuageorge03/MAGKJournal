@@ -1,0 +1,37 @@
+<section id="entries-all">
+    <div class="greeting">
+        <h1>{{randomizedHeadings.greetingPrefixes}} User,</h1>
+        <p>{{randomizedHeadings.userGreetings}}</p>
+    </div>
+
+    <div id="create-entry">
+        <a href="/entries/new">
+            <div>
+                <h3>Create a New Entry</h3>
+                <p>Write about today's experiences!</p>
+            </div>
+            <p>+</p>
+        </a>
+    </div>
+
+    <div id="past-entries">
+        {{#if entries}}
+        <h2>Past Entries</h2>
+        <ul>
+            {{#each entries}}
+            <li class="entry-card {{this.emotionName}}">
+                <div>
+                    <h3>{{this.title}}</h3>
+                    <h4>{{formatDate this.date}}</h4>
+                </div>
+                <p class="notes">{{this.notes}}</p>
+                <a href="/entries/{{this._id}}">View</a>
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <h3>No entries yet!</h3>
+        <p>Create one above.</p>
+        {{/if}}
+    </div>
+</section>
